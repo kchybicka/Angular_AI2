@@ -1,0 +1,11 @@
+<div class="random-container">
+  <h3>Generator liczb losowych (max: {{max}})</h3>
+  <button (click)="generateNumber()">Losuj liczbę</button>
+
+  <div *ngIf="randomNumber > 0" class="result">
+    <p>Wylosowana liczba: <strong>{{randomNumber}}</strong></p>
+    <p [ngClass]="{'low-number': isLowNumber(), 'high-number': !isLowNumber()}">
+      {{getComment()}}
+    </p>
+  </div>
+</div>
