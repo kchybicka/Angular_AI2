@@ -1,0 +1,80 @@
+<div class="form-container">
+  <h2>Dodaj nową osobę</h2>
+
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="firstName">Imię:</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="person.firstName"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="familyName">Nazwisko:</label>
+      <input
+        type="text"
+        id="familyName"
+        name="familyName"
+        [(ngModel)]="person.familyName"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="age">Wiek:</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        [(ngModel)]="person.age"
+        min="0"
+        required
+      >
+    </div>
+
+    <h3>Adres</h3>
+
+    <div class="form-group">
+      <label for="city">Miasto:</label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        [(ngModel)]="person.address.city"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="street">Ulica:</label>
+      <input
+        type="text"
+        id="street"
+        name="street"
+        [(ngModel)]="person.address.street"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="postCode">Kod pocztowy:</label>
+      <input
+        type="text"
+        id="postCode"
+        name="postCode"
+        [(ngModel)]="person.address.postCode"
+        placeholder="00-000"
+        required
+      >
+    </div>
+
+    <div class="button-group">
+      <button type="submit" class="btn-save">Zapisz</button>
+      <button type="button" routerLink="/" class="btn-cancel">Anuluj</button>
+    </div>
+  </form>
+</div>

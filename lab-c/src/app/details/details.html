@@ -1,0 +1,49 @@
+<div class="details-container">
+  @if (person) {
+    <h2>Szczegóły osoby</h2>
+
+    <div class="details-card">
+      <div class="detail-row">
+        <span class="label">Imię:</span>
+        <span class="value">{{ person.firstName }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Nazwisko:</span>
+        <span class="value">{{ person.familyName }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Wiek:</span>
+        <span class="value">{{ person.age }} lat</span>
+      </div>
+
+      <h3>Adres</h3>
+
+      <div class="detail-row">
+        <span class="label">Miasto:</span>
+        <span class="value">{{ person.address.city }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Ulica:</span>
+        <span class="value">{{ person.address.street }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Kod pocztowy:</span>
+        <span class="value">{{ person.address.postCode }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button routerLink="/" class="btn-back">Powrót do listy</button>
+    </div>
+  } @else {
+    <div class="error-message">
+      <h2>Nie znaleziono osoby</h2>
+      <p>Osoba o podanym ID nie istnieje.</p>
+      <button routerLink="/" class="btn-back">Powrót do listy</button>
+    </div>
+  }
+</div>

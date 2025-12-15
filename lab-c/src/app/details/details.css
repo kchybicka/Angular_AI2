@@ -1,0 +1,78 @@
+.details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.details-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.details-container h3 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #1976d2;
+  padding-bottom: 5px;
+}
+
+.details-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  color: #333;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.btn-back {
+  background-color: #757575;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+  background-color: #616161;
+}
+
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background-color: #ffebee;
+  border-radius: 8px;
+  color: #c62828;
+}
+
+.error-message h2 {
+  color: #c62828;
+}
