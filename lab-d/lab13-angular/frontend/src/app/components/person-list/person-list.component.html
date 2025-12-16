@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <h2>Lista osób</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <button class="btn btn-primary mb-3" (click)="navigateToAdd()">
+    Dodaj nową osobę
+  </button>
+
+  <div *ngIf="loading">Ładowanie...</div>
+
+  <table class="table table-striped" *ngIf="!loading && persons.length > 0">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Wiek</th>
+      <th>Miasto</th>
+      <th>Ulica</th>
+      <th>Kod</th>
+      <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{ person.id }}</td>
+      <td>{{ person.firstName }}</td>
+      <td>{{ person.familyName }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.address.city }}</td>
+      <td>{{ person.address.street }}</td>
+      <td>{{ person.address.postCode }}</td>
+      <td>
+        <button class="btn btn-sm btn-info me-2" (click)="navigateToEdit(person.id)">Edytuj</button>
+        <button class="btn btn-sm btn-danger" (click)="deletePerson(person.id)">Usuń</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && persons.length === 0" class="alert alert-info">
+    Brak osób w bazie
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.container {
+  max-width: 600px;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+fieldset {
+  border-radius: 5px;
+}

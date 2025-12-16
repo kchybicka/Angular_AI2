@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Edytuj osobę' : 'Dodaj nową osobę' }}</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+  <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Imię *</label>
+      <input type="text" class="form-control" formControlName="firstName"
+             [class.is-invalid]="firstName && firstName.invalid && firstName.touched">
+      <div *ngIf="firstName && firstName.invalid && firstName.touched" class="invalid-feedback">
+        Imię jest wymagane (min. 2 znaki)
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Nazwisko *</label>
+      <input type="text" class="form-control" formControlName="familyName"
+             [class.is-invalid]="familyName && familyName.invalid && familyName.touched">
+      <div *ngIf="familyName && familyName.invalid && familyName.touched" class="invalid-feedback">
+        Nazwisko jest wymagane (min. 2 znaki)
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Wiek *</label>
+      <input type="number" class="form-control" formControlName="age"
+             [class.is-invalid]="age && age.invalid && age.touched">
+      <div *ngIf="age && age.invalid && age.touched" class="invalid-feedback">
+        Wiek musi być liczbą od 0 do 150
+      </div>
+    </div>
+
+    <fieldset formGroupName="address" class="border p-3 mb-3">
+      <legend>Adres</legend>
+
+      <div class="mb-3">
+        <label>Miasto *</label>
+        <input type="text" class="form-control" formControlName="city"
+               [class.is-invalid]="city && city.invalid && city.touched">
+      </div>
+
+      <div class="mb-3">
+        <label>Ulica *</label>
+        <input type="text" class="form-control" formControlName="street"
+               [class.is-invalid]="street && street.invalid && street.touched">
+      </div>
+
+      <div class="mb-3">
+        <label>Kod pocztowy * (XX-XXX)</label>
+        <input type="text" class="form-control" formControlName="postCode" placeholder="00-000"
+               [class.is-invalid]="postCode && postCode.invalid && postCode.touched">
+        <div *ngIf="postCode && postCode.invalid && postCode.touched" class="invalid-feedback">
+          Format: XX-XXX (np. 00-001)
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary me-2" [disabled]="!personForm.valid">
+      {{ isEditMode ? 'Zaktualizuj' : 'Dodaj' }}
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="goBack()">Anuluj</button>
+  </form>
+</div>
